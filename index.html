@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Juan Antonio San Agustín Serrano</title>
+
+    <meta name="description"
+          content="Tarjeta profesional de Juan Antonio San Agustín Serrano — ASIR, IT, Sistemas y Redes.">
+
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        :root {
+            --background: #080b10;
+            --card: #10151d;
+            --card-hover: #171e28;
+            --border: #242d39;
+            --text: #f4f7fb;
+            --muted: #9ba7b7;
+            --accent: #78aaff;
+        }
+
+        body {
+            min-height: 100vh;
+            padding: 24px;
+
+            font-family:
+                Inter,
+                system-ui,
+                -apple-system,
+                BlinkMacSystemFont,
+                "Segoe UI",
+                sans-serif;
+
+            color: var(--text);
+
+            background:
+                radial-gradient(
+                    circle at 15% 5%,
+                    rgba(120, 170, 255, 0.17),
+                    transparent 33%
+                ),
+                radial-gradient(
+                    circle at 90% 95%,
+                    rgba(120, 170, 255, 0.10),
+                    transparent 30%
+                ),
+                var(--background);
+        }
+
+        .container {
+            width: 100%;
+            max-width: 520px;
+            margin: 0 auto;
+        }
+
+        .card {
+            padding: 30px;
+            border: 1px solid var(--border);
+            border-radius: 30px;
+
+            background: rgba(16, 21, 29, 0.94);
+
+            box-shadow:
+                0 25px 90px rgba(0, 0, 0, 0.42);
+
+            backdrop-filter: blur(18px);
+        }
+
+        .profile {
+            text-align: center;
+            margin-bottom: 26px;
+        }
+
+        .profile-photo {
+            width: 116px;
+            height: 116px;
+
+            object-fit: cover;
+
+            border-radius: 50%;
+            border: 3px solid rgba(255, 255, 255, 0.10);
+
+            margin-bottom: 18px;
+        }
+
+        h1 {
+            font-size: 27px;
+            line-height: 1.15;
+            letter-spacing: -0.6px;
+        }
+
+        .subtitle {
+            margin-top: 9px;
+
+            color: var(--muted);
+
+            font-size: 15px;
+        }
+
+        .links {
+            display: grid;
+            gap: 10px;
+        }
+
+        .link {
+            min-height: 54px;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            padding: 0 18px;
+
+            border: 1px solid var(--border);
+            border-radius: 15px;
+
+            color: var(--text);
+            background: var(--card);
+
+            text-decoration: none;
+
+            font-weight: 600;
+
+            transition:
+                transform 0.18s ease,
+                background 0.18s ease,
+                border-color 0.18s ease;
+        }
+
+        .link:hover {
+            transform: translateY(-2px);
+
+            background: var(--card-hover);
+            border-color: #3b4a60;
+        }
+
+        .primary {
+            color: #090c11;
+            background: #eef4ff;
+            border-color: #eef4ff;
+        }
+
+        .primary:hover {
+            background: #ffffff;
+            border-color: #ffffff;
+        }
+
+        .section {
+            margin-top: 25px;
+            padding-top: 22px;
+
+            border-top: 1px solid var(--border);
+        }
+
+        .section-title {
+            margin-bottom: 10px;
+
+            font-size: 15px;
+            letter-spacing: 0.2px;
+        }
+
+        .section-text {
+            color: var(--muted);
+
+            font-size: 14px;
+            line-height: 1.65;
+        }
+
+        .tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 7px;
+
+            margin-top: 12px;
+        }
+
+        .tag {
+            padding: 6px 10px;
+
+            border: 1px solid var(--border);
+            border-radius: 999px;
+
+            color: #cdd6e3;
+            background: #0d1219;
+
+            font-size: 12px;
+        }
+
+        .footer {
+            margin-top: 22px;
+
+            color: #697588;
+
+            text-align: center;
+
+            font-size: 11px;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="container">
+
+    <main class="card">
+
+        <section class="profile">
+
+            <img
+                src="profile.png"
+                alt="Foto profesional de Juan Antonio San Agustín Serrano"
+                class="profile-photo"
+            >
+
+            <h1>
+                Juan Antonio San Agustín Serrano
+            </h1>
+
+            <p class="subtitle">
+                ASIR · IT · Sistemas y Redes
+            </p>
+
+        </section>
+
+
+        <section class="links">
+
+            <a
+                class="link primary"
+                href="https://www.linkedin.com/in/juanantoniosanagustinserrano/"
+                target="_blank"
+                rel="noopener noreferrer"
+            >
+                LinkedIn
+            </a>
+
+            <a
+                class="link"
+                href="https://github.com/xWan-Dev"
+                target="_blank"
+                rel="noopener noreferrer"
+            >
+                💻 GitHub · @xWan-Dev
+            </a>
+
+            <a
+                class="link"
+                href="https://t.me/xwandev"
+                target="_blank"
+                rel="noopener noreferrer"
+            >
+                ✈️ Telegram · @xwandev
+            </a>
+
+            <a
+                class="link"
+                href="mailto:juanantoniosanprofesional@gmail.com"
+            >
+                ✉️ Email
+            </a>
+
+            <a
+                class="link"
+                href="tel:+34655182256"
+            >
+                ☎️ Teléfono
+            </a>
+
+        </section>
+
+
+        <section class="section">
+
+            <h2 class="section-title">
+                Sobre mí
+            </h2>
+
+            <p class="section-text">
+                Persona sociable, observadora y pragmática, con experiencia
+                en captación de socios y atención al cliente. Destaco por
+                mis habilidades comunicativas, capacidad de adaptación,
+                trabajo en equipo y resolución de problemas.
+            </p>
+
+        </section>
+
+
+        <section class="section">
+
+            <h2 class="section-title">
+                Áreas de interés
+            </h2>
+
+            <div class="tags">
+
+                <span class="tag">Sistemas</span>
+                <span class="tag">Redes</span>
+                <span class="tag">Linux</span>
+                <span class="tag">Docker</span>
+                <span class="tag">Automatización</span>
+                <span class="tag">IT</span>
+
+            </div>
+
+        </section>
+
+
+        <section class="section">
+
+            <h2 class="section-title">
+                Formación
+            </h2>
+
+            <p class="section-text">
+                ASIR · Grado universitario en Filología Hispánica ·
+                Formación complementaria en atención al cliente,
+                ventas y sistemas fotovoltaicos.
+            </p>
+
+        </section>
+
+
+        <section class="section">
+
+            <div class="links">
+
+                <a
+                    class="link"
+                    href="mailto:juanantoniosanprofesional@gmail.com?subject=Contacto%20profesional"
+                >
+                    ✉️ Contactar por email
+                </a>
+
+                <a
+                    class="link"
+                    href="cv.pdf"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                >
+                    📄 Ver CV
+                </a>
+
+            </div>
+
+        </section>
+
+
+        <div class="footer">
+            Tarjeta digital profesional · xWan-Dev
+        </div>
+
+    </main>
+
+</div>
+
+</body>
+</html>
