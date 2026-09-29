@@ -1,1636 +1,859 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-  <title>Juan Antonio San Agustín Serrano · Tarjeta profesional</title>
-
-  <style>
-    * {
-      box-sizing: border-box;
-    }
-
-    html {
-      scroll-behavior: smooth;
-    }
-
-    body {
-      margin: 0;
-      min-height: 100vh;
-      font-family:
-        Inter,
-        system-ui,
-        -apple-system,
-        BlinkMacSystemFont,
-        "Segoe UI",
-        sans-serif;
-
-      background:
-        radial-gradient(
-          circle at top,
-          #132b48 0%,
-          #081321 42%,
-          #050b13 100%
-        );
-
-      color: #edf4ff;
-      padding: 24px 16px;
-    }
-
-    .container {
-      width: 100%;
-      max-width: 820px;
-      margin: 0 auto;
-    }
-
-    .card {
-      background: rgba(12, 24, 39, 0.94);
-      border: 1px solid rgba(105, 157, 210, 0.22);
-      border-radius: 28px;
-      padding: 34px;
-
-      box-shadow:
-        0 25px 70px rgba(0, 0, 0, 0.38),
-        inset 0 1px 0 rgba(255, 255, 255, 0.03);
-
-      backdrop-filter: blur(14px);
-    }
-
-    /* =========================================================
-       PERFIL
-       ========================================================= */
-
-    .profile {
-      display: flex;
-      align-items: center;
-      gap: 30px;
-      margin-bottom: 32px;
-    }
-
-    .profile-image {
-      width: 170px;
-      height: 170px;
-      flex: 0 0 170px;
-
-      object-fit: cover;
-
-      border-radius: 50%;
-      border: 4px solid #42a5ff;
-
-      box-shadow:
-        0 0 0 7px rgba(66, 165, 255, 0.08),
-        0 0 35px rgba(66, 165, 255, 0.28);
-    }
-
-    .profile-info h1 {
-      margin: 0 0 8px;
-
-      font-size: clamp(2rem, 5vw, 3rem);
-      line-height: 1.05;
-      letter-spacing: -0.04em;
-    }
-
-    .subtitle {
-      margin: 0 0 18px;
-
-      color: #9fc7ef;
-
-      font-size: 1.15rem;
-      font-weight: 500;
-    }
-
-    .about-intro {
-      margin: 0;
-
-      color: #a9bbcf;
-
-      line-height: 1.7;
-      font-size: 0.98rem;
-    }
-
-    /* =========================================================
-       DOCUMENTOS
-       ========================================================= */
-
-    .documents {
-      display: grid;
-      gap: 14px;
-
-      margin: 26px 0 32px;
-    }
-
-    .document-card {
-      padding: 18px;
-
-      border-radius: 20px;
-
-      background: rgba(18, 36, 57, 0.72);
-      border: 1px solid rgba(101, 153, 207, 0.22);
-
-      transition:
-        transform 0.2s ease,
-        border-color 0.2s ease,
-        background 0.2s ease,
-        box-shadow 0.2s ease;
-    }
-
-    .document-card:hover {
-      transform: translateY(-2px);
-
-      border-color: rgba(77, 168, 255, 0.48);
-
-      background: rgba(25, 51, 79, 0.9);
-
-      box-shadow:
-        0 10px 30px rgba(0, 0, 0, 0.18);
-    }
-
-    .document-info {
-      display: flex;
-      align-items: center;
-      gap: 13px;
-
-      margin-bottom: 14px;
-    }
-
-    .document-icon {
-      width: 44px;
-      height: 44px;
-
-      flex: 0 0 44px;
-
-      display: grid;
-      place-items: center;
-
-      border-radius: 50%;
-
-      background: rgba(66, 165, 255, 0.14);
-
-      color: #70baff;
-    }
-
-    .document-title {
-      display: block;
-
-      font-weight: 700;
-      font-size: 1.02rem;
-    }
-
-    .document-subtitle {
-      display: block;
-
-      margin-top: 3px;
-
-      color: #91acc8;
-
-      font-size: 0.84rem;
-    }
-
-    .document-actions {
-      display: grid;
-
-      grid-template-columns: 1fr 1fr;
-
-      gap: 10px;
-    }
-
-    .document-button {
-      display: flex;
-
-      align-items: center;
-      justify-content: center;
-
-      gap: 8px;
-
-      min-height: 44px;
-
-      padding: 11px 14px;
-
-      border-radius: 12px;
-
-      text-decoration: none;
-
-      font-size: 0.88rem;
-      font-weight: 700;
-
-      transition:
-        transform 0.2s ease,
-        background 0.2s ease,
-        border-color 0.2s ease;
-    }
-
-    .document-button:hover {
-      transform: translateY(-1px);
-    }
-
-    .document-button.view {
-      background: rgba(66, 165, 255, 0.12);
-
-      border: 1px solid rgba(66, 165, 255, 0.28);
-
-      color: #d9ecff;
-    }
-
-    .document-button.view:hover {
-      background: rgba(66, 165, 255, 0.2);
-
-      border-color: rgba(66, 165, 255, 0.5);
-    }
-
-    .document-button.download {
-      background:
-        linear-gradient(
-          135deg,
-          #4ca8ff,
-          #3287e8
-        );
-
-      border: 1px solid transparent;
-
-      color: #06111e;
-
-      box-shadow:
-        0 8px 20px rgba(50, 135, 232, 0.18);
-    }
-
-    .document-button.download:hover {
-      background:
-        linear-gradient(
-          135deg,
-          #61b2ff,
-          #3c92ef
-        );
-    }
-
-    /* =========================================================
-       ENLACES / CONTACTO
-       ========================================================= */
-
-    .links {
-      display: grid;
-
-      gap: 12px;
-
-      margin: 0 0 32px;
-    }
-
-    .link {
-      display: flex;
-
-      align-items: center;
-
-      gap: 16px;
-
-      text-decoration: none;
-
-      color: #edf4ff;
-
-      background: rgba(18, 36, 57, 0.8);
-
-      border: 1px solid rgba(101, 153, 207, 0.22);
-
-      border-radius: 18px;
-
-      padding: 16px 20px;
-
-      transition:
-        transform 0.2s ease,
-        border-color 0.2s ease,
-        background 0.2s ease,
-        box-shadow 0.2s ease;
-    }
-
-    .link:hover {
-      transform: translateY(-2px);
-
-      border-color: rgba(77, 168, 255, 0.55);
-
-      background: rgba(25, 51, 79, 0.95);
-
-      box-shadow:
-        0 10px 30px rgba(0, 0, 0, 0.18);
-    }
-
-    .icon {
-      width: 46px;
-      height: 46px;
-
-      flex: 0 0 46px;
-
-      display: grid;
-      place-items: center;
-
-      border-radius: 14px;
-
-      background: rgba(66, 165, 255, 0.10);
-
-      color: #dceeff;
-    }
-
-    .icon svg {
-      width: 25px;
-      height: 25px;
-
-      display: block;
-    }
-
-    .link-content {
-      flex: 1;
-    }
-
-    .link-title {
-      display: block;
-
-      font-weight: 700;
-      font-size: 1.05rem;
-    }
-
-    .link-subtitle {
-      display: block;
-
-      margin-top: 3px;
-
-      color: #91acc8;
-
-      font-size: 0.86rem;
-    }
-
-    .arrow {
-      font-size: 1.5rem;
-
-      color: #8fb8df;
-    }
-
-    /* =========================================================
-       SECCIONES
-       ========================================================= */
-
-    .section {
-      margin-top: 28px;
-
-      padding-top: 28px;
-
-      border-top:
-        1px solid rgba(130, 160, 190, 0.16);
-    }
-
-    .section-title {
-      display: flex;
-
-      align-items: center;
-
-      gap: 10px;
-
-      margin: 0 0 18px;
-
-      font-size: 1.25rem;
-    }
-
-    .section-title-icon {
-      width: 32px;
-      height: 32px;
-
-      display: grid;
-      place-items: center;
-
-      border-radius: 10px;
-
-      background: rgba(66, 165, 255, 0.10);
-
-      color: #70baff;
-    }
-
-    .section-title-icon svg {
-      width: 19px;
-      height: 19px;
-    }
-
-    .section-text {
-      margin: 0 0 14px;
-
-      color: #a9bbcf;
-
-      line-height: 1.75;
-    }
-
-    .section-text:last-child {
-      margin-bottom: 0;
-    }
-
-    /* =========================================================
-       FORMACIÓN
-       ========================================================= */
-
-    .education {
-      display: grid;
-
-      gap: 12px;
-    }
-
-    .education-item {
-      display: flex;
-
-      gap: 14px;
-
-      padding: 16px;
-
-      border-radius: 16px;
-
-      background: rgba(18, 36, 57, 0.58);
-
-      border: 1px solid rgba(101, 153, 207, 0.14);
-
-      transition:
-        border-color 0.2s ease,
-        background 0.2s ease,
-        transform 0.2s ease;
-    }
-
-    .education-item:hover {
-      transform: translateY(-1px);
-
-      background: rgba(24, 47, 73, 0.75);
-
-      border-color: rgba(77, 168, 255, 0.32);
-    }
-
-    .education-icon {
-      width: 42px;
-      height: 42px;
-
-      flex: 0 0 42px;
-
-      display: grid;
-      place-items: center;
-
-      border-radius: 12px;
-
-      background: rgba(66, 165, 255, 0.10);
-
-      color: #70baff;
-    }
-
-    .education-icon svg {
-      width: 21px;
-      height: 21px;
-    }
-
-    .education-content {
-      min-width: 0;
-    }
-
-    .education-title {
-      display: block;
-
-      color: #edf4ff;
-
-      font-weight: 700;
-
-      line-height: 1.4;
-    }
-
-    .education-meta {
-      display: block;
-
-      margin-top: 5px;
-
-      color: #8fa9c3;
-
-      font-size: 0.88rem;
-
-      line-height: 1.5;
-    }
-
-    .education-current {
-      display: inline-block;
-
-      margin-left: 6px;
-
-      padding: 3px 8px;
-
-      border-radius: 999px;
-
-      background: rgba(66, 165, 255, 0.14);
-
-      color: #79bdff;
-
-      font-size: 0.72rem;
-
-      font-weight: 700;
-
-      vertical-align: middle;
-    }
-
-    /* =========================================================
-       PROYECTOS TÉCNICOS
-       ========================================================= */
-
-    .project-card {
-      padding: 20px;
-
-      border-radius: 18px;
-
-      background:
-        linear-gradient(
-          145deg,
-          rgba(22, 44, 68, 0.8),
-          rgba(14, 29, 46, 0.8)
-        );
-
-      border: 1px solid rgba(101, 153, 207, 0.18);
-    }
-
-    .project-header {
-      display: flex;
-
-      align-items: center;
-
-      gap: 13px;
-
-      margin-bottom: 16px;
-    }
-
-    .project-icon {
-      width: 45px;
-      height: 45px;
-
-      flex: 0 0 45px;
-
-      display: grid;
-      place-items: center;
-
-      border-radius: 13px;
-
-      background: rgba(66, 165, 255, 0.12);
-
-      color: #70baff;
-    }
-
-    .project-icon svg {
-      width: 24px;
-      height: 24px;
-    }
-
-    .project-title {
-      font-weight: 700;
-
-      font-size: 1.05rem;
-    }
-
-    .project-subtitle {
-      display: block;
-
-      margin-top: 3px;
-
-      color: #829db8;
-
-      font-size: 0.82rem;
-    }
-
-    .project-list {
-      margin: 0;
-
-      padding-left: 20px;
-
-      color: #a9bbcf;
-    }
-
-    .project-list li {
-      margin-bottom: 10px;
-
-      line-height: 1.65;
-    }
-
-    .project-list li:last-child {
-      margin-bottom: 0;
-    }
-
-    /* =========================================================
-       ÁREAS DE INTERÉS
-       ========================================================= */
-
-    .tags {
-      display: flex;
-
-      flex-wrap: wrap;
-
-      gap: 9px;
-    }
-
-    .tag {
-      display: inline-flex;
-
-      align-items: center;
-
-      gap: 7px;
-
-      padding: 9px 14px;
-
-      border-radius: 999px;
-
-      border:
-        1px solid rgba(100, 160, 220, 0.25);
-
-      background:
-        rgba(20, 39, 61, 0.75);
-
-      color: #c8dcf2;
-
-      font-size: 0.88rem;
-    }
-
-    .tag svg {
-      width: 15px;
-      height: 15px;
-
-      color: #70baff;
-    }
-
-    /* =========================================================
-       PERFIL / SOBRE MÍ
-       ========================================================= */
-
-    .profile-block {
-      display: grid;
-
-      gap: 13px;
-    }
-
-    .profile-block p {
-      margin: 0;
-
-      color: #a9bbcf;
-
-      line-height: 1.75;
-    }
-
-    /* =========================================================
-       FRASE FINAL
-       ========================================================= */
-
-    .footer-message {
-      text-align: center;
-
-      margin-top: 34px;
-
-      color: #8ea8c2;
-
-      font-style: italic;
-
-      font-size: 0.95rem;
-    }
-
-    .footer-message::before,
-    .footer-message::after {
-      content: "—";
-
-      margin: 0 12px;
-
-      color: #5f84a8;
-    }
-
-    footer {
-      text-align: center;
-
-      margin-top: 22px;
-
-      color: #58728c;
-
-      font-size: 0.78rem;
-    }
-
-    /* =========================================================
-       MÓVIL
-       ========================================================= */
-
-    @media (max-width: 650px) {
-
-      body {
-        padding: 10px;
-      }
-
-      .card {
-        padding: 22px 18px;
-
-        border-radius: 22px;
-      }
-
-      .profile {
-        flex-direction: column;
-
-        text-align: center;
-
-        gap: 18px;
-      }
-
-      .profile-image {
-        width: 145px;
-        height: 145px;
-
-        flex-basis: 145px;
-      }
-
-      .profile-info h1 {
-        font-size: 2rem;
-      }
-
-      .subtitle {
-        font-size: 1rem;
-      }
-
-      .about-intro {
-        font-size: 0.94rem;
-      }
-
-      .document-actions {
-        grid-template-columns: 1fr;
-      }
-
-      .document-button {
-        min-height: 46px;
-      }
-
-      .link {
-        padding: 14px 15px;
-      }
-
-      .education-item {
-        padding: 14px;
-      }
-
-      .footer-message::before,
-      .footer-message::after {
-        display: none;
-      }
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Juan Antonio San Agustín Serrano - Administración de Sistemas Informáticos en Red">
+    <title>Juan Antonio San Agustín Serrano</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+                Helvetica, Arial, sans-serif;
+            color: #e5e7eb;
+            background:
+                radial-gradient(circle at top left, #1e3a5f 0%, transparent 35%),
+                radial-gradient(circle at bottom right, #172554 0%, transparent 35%),
+                #020617;
+            min-height: 100vh;
+            line-height: 1.6;
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        .container {
+            width: min(1100px, 92%);
+            margin: 0 auto;
+        }
+
+        /* HEADER */
+
+        header {
+            padding: 70px 0 40px;
+        }
+
+        .hero {
+            background: rgba(15, 23, 42, 0.72);
+            border: 1px solid rgba(148, 163, 184, 0.15);
+            border-radius: 28px;
+            padding: 45px;
+            backdrop-filter: blur(18px);
+            box-shadow: 0 25px 80px rgba(0, 0, 0, 0.35);
+            text-align: center;
+        }
+
+        .profile-image {
+            width: 145px;
+            height: 145px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 4px solid rgba(255, 255, 255, 0.15);
+            box-shadow: 0 15px 45px rgba(0, 0, 0, 0.4);
+            margin-bottom: 25px;
+        }
+
+        h1 {
+            font-size: clamp(2.2rem, 5vw, 4rem);
+            line-height: 1.1;
+            margin-bottom: 15px;
+            letter-spacing: -1.5px;
+        }
+
+        .subtitle {
+            color: #94a3b8;
+            font-size: 1.15rem;
+            max-width: 750px;
+            margin: 0 auto 28px;
+        }
+
+        .hero-buttons {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 12px;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            padding: 12px 20px;
+            border-radius: 12px;
+            font-weight: 600;
+            transition: all 0.25s ease;
+            border: 1px solid rgba(148, 163, 184, 0.2);
+            background: rgba(30, 41, 59, 0.7);
+        }
+
+        .btn:hover {
+            transform: translateY(-2px);
+            background: rgba(51, 65, 85, 0.9);
+        }
+
+        .btn-primary {
+            background: #2563eb;
+            border-color: #2563eb;
+        }
+
+        .btn-primary:hover {
+            background: #1d4ed8;
+        }
+
+        /* NAVIGATION */
+
+        nav {
+            position: sticky;
+            top: 15px;
+            z-index: 100;
+            margin-bottom: 45px;
+        }
+
+        .nav-inner {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 8px;
+            padding: 10px;
+            background: rgba(15, 23, 42, 0.82);
+            border: 1px solid rgba(148, 163, 184, 0.12);
+            border-radius: 18px;
+            backdrop-filter: blur(18px);
+        }
+
+        nav a {
+            padding: 9px 15px;
+            color: #94a3b8;
+            border-radius: 10px;
+            transition: 0.2s;
+        }
+
+        nav a:hover {
+            color: white;
+            background: rgba(51, 65, 85, 0.7);
+        }
+
+        /* SECTIONS */
+
+        section {
+            margin-bottom: 55px;
+            scroll-margin-top: 90px;
+        }
+
+        .section-card {
+            background: rgba(15, 23, 42, 0.66);
+            border: 1px solid rgba(148, 163, 184, 0.12);
+            border-radius: 24px;
+            padding: 35px;
+            backdrop-filter: blur(14px);
+        }
+
+        .section-title {
+            font-size: 1.9rem;
+            margin-bottom: 25px;
+            color: #f8fafc;
+        }
+
+        .section-title span {
+            color: #60a5fa;
+        }
+
+        .about-text {
+            color: #cbd5e1;
+            font-size: 1.05rem;
+        }
+
+        .about-text p {
+            margin-bottom: 18px;
+        }
+
+        /* DOCUMENTS */
+
+        .documents-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 20px;
+        }
+
+        .document-card {
+            padding: 25px;
+            background: rgba(30, 41, 59, 0.55);
+            border: 1px solid rgba(148, 163, 184, 0.12);
+            border-radius: 18px;
+            transition: 0.25s;
+        }
+
+        .document-card:hover {
+            transform: translateY(-4px);
+            border-color: rgba(96, 165, 250, 0.4);
+        }
+
+        .document-icon {
+            font-size: 2rem;
+            margin-bottom: 12px;
+        }
+
+        .document-card h3 {
+            margin-bottom: 8px;
+        }
+
+        .document-card p {
+            color: #94a3b8;
+            margin-bottom: 18px;
+        }
+
+        .document-buttons {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+
+        .document-buttons a {
+            font-size: 0.9rem;
+            padding: 8px 12px;
+            border-radius: 9px;
+            background: #1e293b;
+            border: 1px solid rgba(148, 163, 184, 0.15);
+        }
+
+        .document-buttons a:hover {
+            background: #334155;
+        }
+
+        /* FORMATION */
+
+        .timeline {
+            position: relative;
+            display: grid;
+            gap: 18px;
+        }
+
+        .timeline-item {
+            padding: 22px;
+            border-left: 3px solid #3b82f6;
+            background: rgba(30, 41, 59, 0.4);
+            border-radius: 0 14px 14px 0;
+        }
+
+        .timeline-item h3 {
+            margin-bottom: 6px;
+            color: #f8fafc;
+        }
+
+        .timeline-item .meta {
+            color: #60a5fa;
+            font-size: 0.9rem;
+            margin-bottom: 5px;
+        }
+
+        .timeline-item p {
+            color: #94a3b8;
+        }
+
+        /* PROJECTS */
+
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+        }
+
+        .project-card {
+            padding: 25px;
+            background: rgba(30, 41, 59, 0.45);
+            border: 1px solid rgba(148, 163, 184, 0.12);
+            border-radius: 18px;
+        }
+
+        .project-card h3 {
+            margin-bottom: 10px;
+        }
+
+        .project-card p {
+            color: #94a3b8;
+            margin-bottom: 15px;
+        }
+
+        .project-list {
+            list-style: none;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+
+        .project-list li {
+            padding: 6px 10px;
+            border-radius: 8px;
+            background: #0f172a;
+            color: #cbd5e1;
+            font-size: 0.85rem;
+            border: 1px solid rgba(148, 163, 184, 0.12);
+        }
+
+        /* INTERESTS */
+
+        .tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .tag {
+            padding: 9px 14px;
+            background: rgba(37, 99, 235, 0.13);
+            border: 1px solid rgba(96, 165, 250, 0.25);
+            border-radius: 10px;
+            color: #bfdbfe;
+        }
+
+        /* CONTACT */
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+            gap: 12px;
+        }
+
+        .contact-link {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 15px;
+            background: rgba(30, 41, 59, 0.5);
+            border: 1px solid rgba(148, 163, 184, 0.12);
+            border-radius: 14px;
+            transition: 0.2s;
+        }
+
+        .contact-link:hover {
+            transform: translateY(-2px);
+            background: rgba(51, 65, 85, 0.7);
+        }
+
+        .contact-icon {
+            width: 26px;
+            height: 26px;
+            flex-shrink: 0;
+        }
+
+        .contact-text {
+            overflow: hidden;
+        }
+
+        .contact-text strong {
+            display: block;
+            color: #f8fafc;
+            font-size: 0.9rem;
+        }
+
+        .contact-text span {
+            display: block;
+            color: #94a3b8;
+            font-size: 0.85rem;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        /* FOOTER */
+
+        footer {
+            text-align: center;
+            padding: 25px 0 45px;
+            color: #64748b;
+            font-size: 0.9rem;
+        }
+
+        /* RESPONSIVE */
+
+        @media (max-width: 650px) {
+            header {
+                padding-top: 30px;
+            }
+
+            .hero {
+                padding: 30px 20px;
+            }
+
+            .section-card {
+                padding: 25px 20px;
+            }
+
+            nav a {
+                font-size: 0.9rem;
+                padding: 8px 10px;
+            }
+        }
+    </style>
 </head>
 
 <body>
 
-  <main class="container">
+    <div class="container">
 
-    <div class="card">
+        <!-- HERO -->
+        <header>
+            <div class="hero">
 
-      <!-- =====================================================
-           PERFIL
-           ===================================================== -->
+                <img
+                    src="profile.png"
+                    alt="Juan Antonio San Agustín Serrano"
+                    class="profile-image"
+                >
 
-      <header class="profile">
+                <h1>Juan Antonio San Agustín Serrano</h1>
 
-        <img
-          src="profile.png"
-          alt="Foto profesional de Juan Antonio San Agustín Serrano"
-          class="profile-image"
-        >
+                <p class="subtitle">
+                    En transición hacia Administración de Sistemas Informáticos en Red (ASIR)
+                </p>
 
-        <div class="profile-info">
+                <div class="hero-buttons">
+                    <a href="#documentos" class="btn btn-primary">
+                        Ver documentación
+                    </a>
 
-          <h1>
-            Juan Antonio<br>
-            San Agustín Serrano
-          </h1>
+                    <a href="#contacto" class="btn">
+                        Contactar
+                    </a>
+                </div>
 
-          <p class="subtitle">
-            En transición hacia Administración de Sistemas Informáticos en Red
-          </p>
-
-          <p class="about-intro">
-            Filólogo de formación y actualmente en transición activa hacia
-            la administración de sistemas informáticos, combinando mi
-            experiencia previa en atención al cliente y comunicación con
-            nuevas competencias técnicas en Linux, redes y virtualización.
-          </p>
-
-        </div>
-
-      </header>
+            </div>
+        </header>
 
 
-      <!-- =====================================================
-           DOCUMENTOS PROFESIONALES
-           ===================================================== -->
+        <!-- NAV -->
+        <nav>
+            <div class="nav-inner">
+                <a href="#sobre-mi">Sobre mí</a>
+                <a href="#documentos">Documentación</a>
+                <a href="#formacion">Formación</a>
+                <a href="#proyectos">Proyectos</a>
+                <a href="#intereses">Intereses</a>
+                <a href="#contacto">Contacto</a>
+            </div>
+        </nav>
 
-      <section
-        class="documents"
-        aria-label="Documentos profesionales"
-      >
 
-        <!-- CV -->
+        <!-- SOBRE MÍ -->
+        <section id="sobre-mi">
 
-        <div class="document-card">
+            <div class="section-card">
 
-          <div class="document-info">
+                <h2 class="section-title">
+                    Sobre <span>mí</span>
+                </h2>
 
-            <span class="document-icon" aria-hidden="true">
+                <div class="about-text">
 
-              <svg
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="1.8"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-              >
-                <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
-                <polyline points="14 2 14 8 20 8"/>
-                <line x1="8" y1="13" x2="16" y2="13"/>
-                <line x1="8" y1="17" x2="16" y2="17"/>
-                <line x1="8" y1="9" x2="10" y2="9"/>
-              </svg>
+                    <p>
+                        Filólogo de formación y en transición activa hacia la
+                        administración de sistemas informáticos. Actualmente curso
+                        el Grado Superior en Administración de Sistemas Informáticos
+                        en Red (ASIR) en el C.D.P. Ramón y Cajal (Córdoba), donde
+                        combino mi experiencia previa en atención al cliente y
+                        comunicación con nuevas competencias técnicas en Linux,
+                        redes y virtualización.
+                    </p>
 
-            </span>
+                    <p>
+                        Soy una persona observadora, pragmática y con gran capacidad
+                        de aprendizaje autónomo. Fuera del aula monto y documento
+                        mis propios laboratorios, trabajando con servidores Linux
+                        y entornos virtualizados como práctica adicional.
+                    </p>
 
-            <div>
+                    <p>
+                        Busco una primera oportunidad —prácticas o puesto junior—
+                        en soporte técnico, administración de sistemas o redes,
+                        donde aportar tanto mis competencias técnicas como mi
+                        capacidad probada de comunicación, resolución de problemas
+                        y trato con usuarios.
+                    </p>
 
-              <span class="document-title">
-                Currículum Vitae
-              </span>
-
-              <span class="document-subtitle">
-                Formación, experiencia y competencias profesionales
-              </span>
+                </div>
 
             </div>
 
-          </div>
-
-          <div class="document-actions">
-
-            <a
-              class="document-button view"
-              href="cv.pdf"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              👁 Ver CV
-            </a>
-
-            <a
-              class="document-button download"
-              href="cv.pdf"
-              download="Juan-Antonio-San-Agustin-Serrano-CV.pdf"
-            >
-              ↓ Descargar CV
-            </a>
-
-          </div>
-
-        </div>
+        </section>
 
 
-        <!-- CARTA -->
+        <!-- DOCUMENTOS -->
+        <section id="documentos">
 
-        <div class="document-card">
+            <div class="section-card">
 
-          <div class="document-info">
+                <h2 class="section-title">
+                    Mi <span>documentación</span>
+                </h2>
 
-            <span class="document-icon" aria-hidden="true">
+                <div class="documents-grid">
 
-              <svg
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="1.8"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-              >
-                <rect x="3" y="5" width="18" height="14" rx="2"/>
-                <polyline points="3 7 12 13 21 7"/>
-              </svg>
+                    <!-- CV -->
+                    <div class="document-card">
 
-            </span>
+                        <div class="document-icon">📄</div>
 
-            <div>
+                        <h3>Currículum Vitae</h3>
 
-              <span class="document-title">
-                Carta de presentación
-              </span>
+                        <p>
+                            CV actualizado con mi formación, experiencia,
+                            competencias y proyectos técnicos.
+                        </p>
 
-              <span class="document-subtitle">
-                Presentación profesional para empresas
-              </span>
+                        <div class="document-buttons">
+
+                            <a
+                                href="cv-juan-antonio-san-agustin-serrano.pdf"
+                                target="_blank"
+                                rel="noopener"
+                            >
+                                Ver CV
+                            </a>
+
+                            <a
+                                href="cv-juan-antonio-san-agustin-serrano.pdf"
+                                download="Juan-Antonio-San-Agustin-Serrano-CV.pdf"
+                            >
+                                Descargar
+                            </a>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- CARTA -->
+                    <div class="document-card">
+
+                        <div class="document-icon">✉️</div>
+
+                        <h3>Carta de presentación</h3>
+
+                        <p>
+                            Carta de presentación orientada a oportunidades
+                            de prácticas y puestos junior.
+                        </p>
+
+                        <div class="document-buttons">
+
+                            <a
+                                href="carta-presentacion.pdf"
+                                target="_blank"
+                                rel="noopener"
+                            >
+                                Ver carta
+                            </a>
+
+                            <a
+                                href="carta-presentacion.pdf"
+                                download="Carta-Presentacion-Juan-Antonio-San-Agustin-Serrano.pdf"
+                            >
+                                Descargar
+                            </a>
+
+                        </div>
+
+                    </div>
+
+                </div>
 
             </div>
 
-          </div>
-
-          <div class="document-actions">
-
-            <a
-              class="document-button view"
-              href="carta-presentacion.pdf"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              👁 Ver carta
-            </a>
-
-            <a
-              class="document-button download"
-              href="carta-presentacion.pdf"
-              download="Juan-Antonio-San-Agustin-Serrano-Carta-Presentacion.pdf"
-            >
-              ↓ Descargar carta
-            </a>
-
-          </div>
-
-        </div>
-
-      </section>
-
-
-      <!-- =====================================================
-           CONTACTO
-           ===================================================== -->
-
-      <nav
-        class="links"
-        aria-label="Enlaces de contacto"
-      >
-
-        <!-- LINKEDIN -->
-
-        <a
-          class="link"
-          href="https://www.linkedin.com/in/juanantoniosanagustinserrano/"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-
-          <span class="icon" aria-hidden="true">
-
-            <svg
-              viewBox="0 0 24 24"
-              fill="currentColor"
-            >
-              <path d="M20.45 20.45h-3.56v-5.57c0-1.33-.03-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.95v5.66H9.34V8.98h3.42v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.61 0 4.27 2.38 4.27 5.48v6.28zM5.32 7.43a2.06 2.06 0 1 1 0-4.12 2.06 2.06 0 0 1 0 4.12zM3.54 8.98H7.1v11.47H3.54V8.98z"/>
-            </svg>
-
-          </span>
-
-          <span class="link-content">
-
-            <span class="link-title">
-              LinkedIn
-            </span>
-
-            <span class="link-subtitle">
-              Perfil profesional y trayectoria
-            </span>
-
-          </span>
-
-          <span class="arrow">›</span>
-
-        </a>
-
-
-        <!-- GITHUB -->
-
-        <a
-          class="link"
-          href="https://github.com/xWan-Dev"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-
-          <span class="icon" aria-hidden="true">
-
-            <svg
-              viewBox="0 0 24 24"
-              fill="currentColor"
-            >
-              <path d="M12 .5a12 12 0 0 0-3.79 23.39c.6.11.82-.26.82-.58v-2.03c-3.34.73-4.04-1.61-4.04-1.61-.55-1.4-1.33-1.77-1.33-1.77-1.09-.75.08-.74.08-.74 1.2.08 1.84 1.23 1.84 1.23 1.07 1.84 2.8 1.31 3.49 1 .11-.78.42-1.31.76-1.61-2.67-.3-5.47-1.34-5.47-5.94 0-1.31.47-2.38 1.23-3.22-.12-.3-.53-1.52.12-3.17 0 0 1-.32 3.3 1.23a11.4 11.4 0 0 1 6 0c2.3-1.55 3.3-1.23 3.3-1.23.65 1.65.24 2.87.12 3.17.76.84 1.23 1.91 1.23 3.22 0 4.61-2.8 5.64-5.48 5.93.43.37.81 1.1.81 2.22v3.29c0 .32.22.69.82.57A12 12 0 0 0 12 .5z"/>
-            </svg>
-
-          </span>
-
-          <span class="link-content">
-
-            <span class="link-title">
-              GitHub
-            </span>
-
-            <span class="link-subtitle">
-              Proyectos, laboratorios y código
-            </span>
-
-          </span>
-
-          <span class="arrow">›</span>
-
-        </a>
-
-
-        <!-- TELEGRAM -->
-
-        <a
-          class="link"
-          href="https://t.me/xwandev"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-
-          <span class="icon" aria-hidden="true">
-
-            <svg
-              viewBox="0 0 24 24"
-              fill="currentColor"
-            >
-              <path d="M21.5 3.5 18.2 20c-.25 1.17-.9 1.46-1.83.91l-5.05-3.72-2.44 2.35c-.27.27-.5.5-1.03.5l.37-5.14 9.36-8.46c.41-.37-.09-.57-.64-.2L5.36 13.61.36 12.04c-1.09-.34-1.11-1.09.23-1.59L20.1 2.91c.9-.34 1.69.21 1.4.59z"/>
-            </svg>
-
-          </span>
-
-          <span class="link-content">
-
-            <span class="link-title">
-              Telegram
-            </span>
-
-            <span class="link-subtitle">
-              Contacto directo
-            </span>
-
-          </span>
-
-          <span class="arrow">›</span>
-
-        </a>
-
-
-        <!-- EMAIL -->
-
-        <a
-          class="link"
-          href="mailto:juanantoniosanprofesional@gmail.com"
-        >
-
-          <span class="icon" aria-hidden="true">
-
-            <svg
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              stroke-width="1.8"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-            >
-              <rect x="3" y="5" width="18" height="14" rx="2"/>
-              <polyline points="3 7 12 13 21 7"/>
-            </svg>
-
-          </span>
-
-          <span class="link-content">
-
-            <span class="link-title">
-              Email
-            </span>
-
-            <span class="link-subtitle">
-              juanantoniosanprofesional@gmail.com
-            </span>
-
-          </span>
-
-          <span class="arrow">›</span>
-
-        </a>
-
-
-        <!-- TELÉFONO -->
-
-        <a
-          class="link"
-          href="tel:+34655182256"
-        >
-
-          <span class="icon" aria-hidden="true">
-
-            <svg
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              stroke-width="1.8"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-            >
-              <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.8 19.8 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.12 4.18 2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.12.9.33 1.78.62 2.62a2 2 0 0 1-.45 2.11L8 9.73a16 16 0 0 0 6 6l1.28-1.28a2 2 0 0 1 2.11-.45c.84.29 1.72.5 2.62.62A2 2 0 0 1 22 16.92z"/>
-            </svg>
-
-          </span>
-
-          <span class="link-content">
-
-            <span class="link-title">
-              Teléfono
-            </span>
-
-            <span class="link-subtitle">
-              +34 655 182 256
-            </span>
-
-          </span>
-
-          <span class="arrow">›</span>
-
-        </a>
-
-      </nav>
-
-
-      <!-- =====================================================
-           SOBRE MÍ
-           ===================================================== -->
-
-      <section class="section">
-
-        <h2 class="section-title">
-
-          <span class="section-title-icon" aria-hidden="true">
-
-            <svg
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              stroke-width="1.8"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-            >
-              <circle cx="12" cy="8" r="4"/>
-              <path d="M4 21c0-4 3.6-7 8-7s8 3 8 7"/>
-            </svg>
-
-          </span>
-
-          Sobre mí
-
-        </h2>
-
-        <div class="profile-block">
-
-          <p>
-            Filólogo de formación y en transición activa hacia la
-            administración de sistemas informáticos. Actualmente curso el
-            Grado Superior en Administración de Sistemas Informáticos en
-            Red (ASIR) en el C.D.P. Ramón y Cajal (Córdoba), donde combino
-            mi experiencia previa en atención al cliente y comunicación
-            con nuevas competencias técnicas en Linux, redes y
-            virtualización.
-          </p>
-
-          <p>
-            Soy una persona observadora, pragmática y con gran capacidad
-            de aprendizaje autónomo. Fuera del aula monto y documento mis
-            propios laboratorios, trabajando con servidores Linux y
-            entornos virtualizados como práctica adicional.
-          </p>
-
-          <p>
-            Busco una primera oportunidad —prácticas o puesto junior— en
-            soporte técnico, administración de sistemas o redes, donde
-            aportar tanto mis competencias técnicas como mi capacidad
-            probada de comunicación, resolución de problemas y trato con
-            usuarios.
-          </p>
-
-        </div>
-
-      </section>
-
-
-      <!-- =====================================================
-           FORMACIÓN
-           ===================================================== -->
-
-      <section class="section">
-
-        <h2 class="section-title">
-
-          <span class="section-title-icon" aria-hidden="true">
-
-            <svg
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              stroke-width="1.8"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-            >
-              <path d="M22 10 12 5 2 10l10 5 10-5z"/>
-              <path d="M6 12v5c3 2 9 2 12 0v-5"/>
-              <path d="M22 10v6"/>
-            </svg>
-
-          </span>
-
-          Formación
-
-        </h2>
-
-        <div class="education">
-
-          <!-- ASIR -->
-
-          <div class="education-item">
-
-            <div class="education-icon">
-
-              <svg
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="1.8"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-              >
-                <rect x="3" y="4" width="18" height="14" rx="2"/>
-                <line x1="8" y1="21" x2="16" y2="21"/>
-                <line x1="12" y1="18" x2="12" y2="21"/>
-              </svg>
+        </section>
+
+
+        <!-- FORMACIÓN -->
+        <section id="formacion">
+
+            <div class="section-card">
+
+                <h2 class="section-title">
+                    <span>Formación</span>
+                </h2>
+
+                <div class="timeline">
+
+                    <div class="timeline-item">
+                        <div class="meta">En curso</div>
+                        <h3>
+                            Grado Superior en Administración de Sistemas Informáticos en Red
+                            (ASIR)
+                        </h3>
+                        <p>
+                            C.D.P. Ramón y Cajal · Córdoba
+                        </p>
+                    </div>
+
+                    <div class="timeline-item">
+                        <div class="meta">Formación universitaria</div>
+                        <h3>
+                            Grado universitario en Filología Hispánica
+                        </h3>
+                    </div>
+
+                    <div class="timeline-item">
+                        <div class="meta">140 horas</div>
+                        <h3>
+                            Curso de Instalador de Sistemas Fotovoltaicos
+                        </h3>
+                        <p>
+                            Proyecto Futuro Solar · UGT · Financiado por IMDEEC
+                        </p>
+                    </div>
+
+                    <div class="timeline-item">
+                        <div class="meta">Bachillerato</div>
+                        <h3>
+                            Bachillerato de Humanidades
+                        </h3>
+                    </div>
+
+                    <div class="timeline-item">
+                        <div class="meta">Formación complementaria</div>
+                        <h3>
+                            Curso de Atención al Cliente
+                        </h3>
+                    </div>
+
+                    <div class="timeline-item">
+                        <div class="meta">Formación complementaria</div>
+                        <h3>
+                            Curso de Venta enfocado a empresas
+                        </h3>
+                    </div>
+
+                </div>
 
             </div>
 
-            <div class="education-content">
-
-              <span class="education-title">
-                Grado Superior en Administración de Sistemas Informáticos en Red (ASIR)
-                <span class="education-current">
-                  En curso
-                </span>
-              </span>
-
-              <span class="education-meta">
-                C.D.P. Ramón y Cajal · Córdoba
-              </span>
-
-            </div>
-
-          </div>
+        </section>
 
 
-          <!-- FILOLOGÍA -->
+        <!-- PROYECTOS -->
+        <section id="proyectos">
 
-          <div class="education-item">
+            <div class="section-card">
 
-            <div class="education-icon">
+                <h2 class="section-title">
+                    Proyectos <span>técnicos</span>
+                </h2>
 
-              <svg
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="1.8"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-              >
-                <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/>
-                <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/>
-              </svg>
+                <div class="projects-grid">
 
-            </div>
+                    <div class="project-card">
 
-            <div class="education-content">
+                        <h3>
+                            Laboratorio personal de sistemas y redes
+                        </h3>
 
-              <span class="education-title">
-                Grado universitario en Filología Hispánica
-              </span>
+                        <p>
+                            Laboratorio propio desarrollado como parte de mi
+                            proceso de autoformación en administración de sistemas.
+                        </p>
+
+                        <ul class="project-list">
+                            <li>Ubuntu Server</li>
+                            <li>VirtualBox</li>
+                            <li>Máquinas virtuales</li>
+                            <li>NAT</li>
+                            <li>Red interna</li>
+                            <li>SSH</li>
+                            <li>Snapshots</li>
+                            <li>Apache</li>
+                            <li>systemctl</li>
+                            <li>Documentación</li>
+                        </ul>
+
+                    </div>
+
+                </div>
 
             </div>
 
-          </div>
+        </section>
 
 
-          <!-- FOTOVOLTAICA -->
+        <!-- INTERESES -->
+        <section id="intereses">
 
-          <div class="education-item">
+            <div class="section-card">
 
-            <div class="education-icon">
+                <h2 class="section-title">
+                    Áreas de <span>interés</span>
+                </h2>
 
-              <svg
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="1.8"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-              >
-                <circle cx="12" cy="12" r="4"/>
-                <path d="M12 2v2"/>
-                <path d="M12 20v2"/>
-                <path d="m4.93 4.93 1.41 1.41"/>
-                <path d="m17.66 17.66 1.41 1.41"/>
-                <path d="M2 12h2"/>
-                <path d="M20 12h2"/>
-                <path d="m6.34 17.66-1.41 1.41"/>
-                <path d="m19.07 4.93-1.41 1.41"/>
-              </svg>
+                <div class="tags">
+
+                    <span class="tag">Sistemas</span>
+                    <span class="tag">Redes</span>
+                    <span class="tag">Linux</span>
+                    <span class="tag">Virtualización</span>
+                    <span class="tag">Administración de sistemas</span>
+                    <span class="tag">Soporte técnico</span>
+
+                </div>
 
             </div>
 
-            <div class="education-content">
-
-              <span class="education-title">
-                Curso de Instalador de Sistemas Fotovoltaicos
-              </span>
-
-              <span class="education-meta">
-                Proyecto Futuro Solar · UGT · Financiado por IMDEEC · 140 horas
-              </span>
-
-            </div>
-
-          </div>
+        </section>
 
 
-          <!-- BACHILLERATO -->
+        <!-- CONTACTO -->
+        <section id="contacto">
 
-          <div class="education-item">
+            <div class="section-card">
 
-            <div class="education-icon">
+                <h2 class="section-title">
+                    <span>Contacto</span>
+                </h2>
 
-              <svg
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="1.8"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-              >
-                <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/>
-                <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/>
-              </svg>
+                <div class="contact-grid">
 
-            </div>
+                    <!-- LINKEDIN -->
+                    <a
+                        href="https://www.linkedin.com/in/juanantoniosanagustinserrano/"
+                        target="_blank"
+                        rel="noopener"
+                        class="contact-link"
+                    >
 
-            <div class="education-content">
+                        <svg
+                            class="contact-icon"
+                            viewBox="0 0 24 24"
+                            fill="currentColor"
+                        >
+                            <path d="M19 3A2 2 0 0 1 21 5V19A2 2 0 0 1 19 21H5A2 2 0 0 1 3 19V5A2 2 0 0 1 5 3H19M8 18V10.5H5.5V18H8M6.75 9.5A1.5 1.5 0 1 0 6.75 6.5A1.5 1.5 0 0 0 6.75 9.5M18.5 18V14.4C18.5 12.4 18.1 10.8 15.9 10.8C14.85 10.8 14.15 11.38 13.85 11.94H13.8V10.5H11.4V18H13.9V14.29C13.9 13.31 14.08 12.36 15.3 12.36C16.5 12.36 16.52 13.48 16.52 14.35V18H18.5Z"/>
+                        </svg>
 
-              <span class="education-title">
-                Bachillerato de Humanidades
-              </span>
+                        <div class="contact-text">
+                            <strong>LinkedIn</strong>
+                            <span>Perfil profesional</span>
+                        </div>
 
-            </div>
-
-          </div>
-
-
-          <!-- ATENCIÓN AL CLIENTE -->
-
-          <div class="education-item">
-
-            <div class="education-icon">
-
-              <svg
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="1.8"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-              >
-                <path d="M21 15a4 4 0 0 1-4 4H8l-5 3V7a4 4 0 0 1 4-4h10a4 4 0 0 1 4 4z"/>
-                <path d="M8 9h8"/>
-                <path d="M8 13h5"/>
-              </svg>
-
-            </div>
-
-            <div class="education-content">
-
-              <span class="education-title">
-                Curso de Atención al Cliente
-              </span>
-
-            </div>
-
-          </div>
+                    </a>
 
 
-          <!-- VENTAS -->
+                    <!-- GITHUB -->
+                    <a
+                        href="https://github.com/xWan-Dev"
+                        target="_blank"
+                        rel="noopener"
+                        class="contact-link"
+                    >
 
-          <div class="education-item">
+                        <svg
+                            class="contact-icon"
+                            viewBox="0 0 24 24"
+                            fill="currentColor"
+                        >
+                            <path d="M12 2C6.48 2 2 6.58 2 12.24C2 16.76 4.87 20.6 8.84 21.96C9.34 22.06 9.52 21.75 9.52 21.48C9.52 21.24 9.51 20.39 9.5 19.29C6.73 19.91 6.14 17.91 6.14 17.91C5.68 16.7 5.03 16.38 5.03 16.38C4.12 15.74 5.1 15.75 5.1 15.75C6.11 15.83 6.64 16.82 6.64 16.82C7.54 18.41 8.99 17.95 9.54 17.69C9.63 17.02 9.89 16.56 10.17 16.3C7.96 16.04 5.64 15.14 5.64 11.02C5.64 9.85 6.05 8.89 6.73 8.14C6.62 7.88 6.27 6.79 6.83 5.31C6.83 5.31 7.71 5.02 9.5 6.27C10.34 6.03 11.24 5.91 12.14 5.91C13.04 5.91 13.94 6.03 14.78 6.27C16.57 5.02 17.45 5.31 17.45 5.31C18.01 6.79 17.66 7.88 17.55 8.14C18.23 8.89 18.64 9.85 18.64 11.02C18.64 15.15 16.31 16.03 14.1 16.29C14.46 16.61 14.78 17.24 14.78 18.21C14.78 19.6 14.77 20.72 14.77 21.48C14.77 21.75 14.95 22.06 15.45 21.96C19.42 20.6 22.29 16.76 22.29 12.24C22.29 6.58 17.81 2 12 2Z"/>
+                        </svg>
 
-            <div class="education-icon">
+                        <div class="contact-text">
+                            <strong>GitHub</strong>
+                            <span>xWan-Dev</span>
+                        </div>
 
-              <svg
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="1.8"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-              >
-                <circle cx="9" cy="21" r="1"/>
-                <circle cx="20" cy="21" r="1"/>
-                <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/>
-              </svg>
-
-            </div>
-
-            <div class="education-content">
-
-              <span class="education-title">
-                Curso de Venta enfocado a empresas
-              </span>
-
-            </div>
-
-          </div>
-
-        </div>
-
-      </section>
+                    </a>
 
 
-      <!-- =====================================================
-           PROYECTOS TÉCNICOS
-           ===================================================== -->
+                    <!-- TELEGRAM -->
+                    <a
+                        href="https://t.me/xwandev"
+                        target="_blank"
+                        rel="noopener"
+                        class="contact-link"
+                    >
 
-      <section class="section">
+                        <svg
+                            class="contact-icon"
+                            viewBox="0 0 24 24"
+                            fill="currentColor"
+                        >
+                            <path d="M21.8 4.6L18.7 19.2C18.47 20.23 17.87 20.49 17.03 20.03L12.45 16.65L10.24 18.78C9.99 19.03 9.78 19.24 9.27 19.24L9.6 14.54L18.15 6.82C18.52 6.49 18.07 6.31 17.58 6.64L7.02 13.45L2.47 12.03C1.48 11.72 1.46 11.04 2.68 10.58L20.48 3.72C21.3 3.42 22.01 3.9 21.8 4.6Z"/>
+                        </svg>
 
-        <h2 class="section-title">
+                        <div class="contact-text">
+                            <strong>Telegram</strong>
+                            <span>@xwandev</span>
+                        </div>
 
-          <span class="section-title-icon" aria-hidden="true">
+                    </a>
 
-            <svg
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              stroke-width="1.8"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-            >
-              <polyline points="16 18 22 12 16 6"/>
-              <polyline points="8 6 2 12 8 18"/>
-              <line x1="14" y1="4" x2="10" y2="20"/>
-            </svg>
 
-          </span>
+                    <!-- EMAIL -->
+                    <a
+                        href="mailto:juanantoniosanprofesional@gmail.com"
+                        class="contact-link"
+                    >
 
-          Proyectos técnicos
+                        <svg
+                            class="contact-icon"
+                            viewBox="0 0 24 24"
+                            fill="none"
+                            stroke="currentColor"
+                            stroke-width="2"
+                        >
+                            <rect x="3" y="5" width="18" height="14" rx="2"/>
+                            <path d="M3 7l9 6 9-6"/>
+                        </svg>
 
-        </h2>
+                        <div class="contact-text">
+                            <strong>Email</strong>
+                            <span>juanantoniosanprofesional@gmail.com</span>
+                        </div>
 
-        <div class="project-card">
+                    </a>
 
-          <div class="project-header">
 
-            <div class="project-icon">
+                    <!-- PHONE -->
+                    <a
+                        href="tel:+34655182256"
+                        class="contact-link"
+                    >
 
-              <svg
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="1.8"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-              >
-                <rect x="2" y="3" width="20" height="14" rx="2"/>
-                <line x1="8" y1="21" x2="16" y2="21"/>
-                <line x1="12" y1="17" x2="12" y2="21"/>
-              </svg>
+                        <svg
+                            class="contact-icon"
+                            viewBox="0 0 24 24"
+                            fill="none"
+                            stroke="currentColor"
+                            stroke-width="2"
+                        >
+                            <path d="M22 16.92V20a2 2 0 0 1-2.18 2A19.8 19.8 0 0 1 3 5.18A2 2 0 0 1 5 3h3.09a2 2 0 0 1 2 1.72c.12.9.33 1.78.62 2.63a2 2 0 0 1-.45 2.11L9 10.73a16 16 0 0 0 4.27 4.27l1.27-1.27a2 2 0 0 1 2.11-.45c.85.29 1.73.5 2.63.62A2 2 0 0 1 22 16.92Z"/>
+                        </svg>
+
+                        <div class="contact-text">
+                            <strong>Teléfono</strong>
+                            <span>+34 655 182 256</span>
+                        </div>
+
+                    </a>
+
+                </div>
 
             </div>
 
-            <div>
-
-              <span class="project-title">
-                Laboratorio personal de sistemas y redes
-              </span>
-
-              <span class="project-subtitle">
-                Autoformación · En curso
-              </span>
-
-            </div>
-
-          </div>
-
-          <ul class="project-list">
-
-            <li>
-              Despliegue y administración de servidores
-              <strong>Ubuntu Server</strong> en VirtualBox.
-            </li>
-
-            <li>
-              Configuración de redes mediante
-              <strong>NAT y red interna</strong>.
-            </li>
-
-            <li>
-              Acceso remoto a los servidores mediante
-              <strong>SSH</strong>.
-            </li>
-
-            <li>
-              Gestión de entornos de prueba reproducibles mediante
-              <strong>snapshots</strong>.
-            </li>
-
-            <li>
-              Instalación, arranque y verificación de servicios web
-              mediante <strong>Apache</strong>.
-            </li>
-
-            <li>
-              Diagnóstico y gestión de servicios utilizando
-              <strong>systemctl</strong>.
-            </li>
-
-            <li>
-              Documentación pública y constante del proceso de aprendizaje
-              como bitácora técnica del camino hacia ASIR.
-            </li>
-
-          </ul>
-
-        </div>
-
-      </section>
+        </section>
 
 
-      <!-- =====================================================
-           ÁREAS DE INTERÉS
-           ===================================================== -->
-
-      <section class="section">
-
-        <h2 class="section-title">
-
-          <span class="section-title-icon" aria-hidden="true">
-
-            <svg
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              stroke-width="1.8"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-            >
-              <circle cx="12" cy="12" r="9"/>
-              <circle cx="12" cy="12" r="3"/>
-              <line x1="12" y1="3" x2="12" y2="9"/>
-              <line x1="21" y1="12" x2="15" y2="12"/>
-              <line x1="12" y1="21" x2="12" y2="15"/>
-              <line x1="3" y1="12" x2="9" y2="12"/>
-            </svg>
-
-          </span>
-
-          Áreas de interés
-
-        </h2>
-
-        <div class="tags">
-
-          <span class="tag">
-            🖥️ Sistemas
-          </span>
-
-          <span class="tag">
-            🌐 Redes
-          </span>
-
-          <span class="tag">
-            🐧 Linux
-          </span>
-
-          <span class="tag">
-            ☁️ Virtualización
-          </span>
-
-          <span class="tag">
-            ⚙️ Administración de sistemas
-          </span>
-
-          <span class="tag">
-            🔧 Soporte técnico
-          </span>
-
-        </div>
-
-      </section>
-
-
-      <!-- =====================================================
-           FRASE FINAL
-           ===================================================== -->
-
-      <div class="footer-message">
-        Siempre aprendiendo, siempre mejorando
-      </div>
-
-      <footer>
-        Tarjeta digital profesional · xWan-Dev
-      </footer>
+        <!-- FOOTER -->
+        <footer>
+            © 2026 Juan Antonio San Agustín Serrano · Córdoba, España
+        </footer>
 
     </div>
-
-  </main>
 
 </body>
 </html>
