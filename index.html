@@ -85,12 +85,119 @@
       font-size: 0.98rem;
     }
 
-    /* BOTONES */
+    /* DOCUMENTOS */
+
+    .documents {
+      display: grid;
+      gap: 14px;
+      margin: 26px 0 32px;
+    }
+
+    .document-card {
+      padding: 18px;
+      border-radius: 20px;
+      background: rgba(18, 36, 57, 0.72);
+      border: 1px solid rgba(101, 153, 207, 0.22);
+      transition:
+        transform 0.2s ease,
+        border-color 0.2s ease,
+        background 0.2s ease,
+        box-shadow 0.2s ease;
+    }
+
+    .document-card:hover {
+      transform: translateY(-2px);
+      border-color: rgba(77, 168, 255, 0.48);
+      background: rgba(25, 51, 79, 0.9);
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.18);
+    }
+
+    .document-info {
+      display: flex;
+      align-items: center;
+      gap: 13px;
+      margin-bottom: 14px;
+    }
+
+    .document-icon {
+      width: 44px;
+      height: 44px;
+      flex: 0 0 44px;
+      display: grid;
+      place-items: center;
+      border-radius: 50%;
+      background: rgba(66, 165, 255, 0.14);
+      font-size: 1.3rem;
+    }
+
+    .document-title {
+      display: block;
+      font-weight: 700;
+      font-size: 1.02rem;
+    }
+
+    .document-subtitle {
+      display: block;
+      margin-top: 3px;
+      color: #91acc8;
+      font-size: 0.84rem;
+    }
+
+    .document-actions {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+    }
+
+    .document-button {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      min-height: 44px;
+      padding: 11px 14px;
+      border-radius: 12px;
+      text-decoration: none;
+      font-size: 0.88rem;
+      font-weight: 700;
+      transition:
+        transform 0.2s ease,
+        background 0.2s ease,
+        border-color 0.2s ease;
+    }
+
+    .document-button:hover {
+      transform: translateY(-1px);
+    }
+
+    .document-button.view {
+      background: rgba(66, 165, 255, 0.12);
+      border: 1px solid rgba(66, 165, 255, 0.28);
+      color: #d9ecff;
+    }
+
+    .document-button.view:hover {
+      background: rgba(66, 165, 255, 0.2);
+      border-color: rgba(66, 165, 255, 0.5);
+    }
+
+    .document-button.download {
+      background: linear-gradient(135deg, #4ca8ff, #3287e8);
+      border: 1px solid transparent;
+      color: #06111e;
+      box-shadow: 0 8px 20px rgba(50, 135, 232, 0.18);
+    }
+
+    .document-button.download:hover {
+      background: linear-gradient(135deg, #61b2ff, #3c92ef);
+    }
+
+    /* CONTACTO */
 
     .links {
       display: grid;
       gap: 12px;
-      margin: 26px 0 32px;
+      margin: 0 0 32px;
     }
 
     .link {
@@ -103,8 +210,11 @@
       border: 1px solid rgba(101, 153, 207, 0.22);
       border-radius: 18px;
       padding: 16px 20px;
-      transition: transform 0.2s ease, border-color 0.2s ease,
-        background 0.2s ease, box-shadow 0.2s ease;
+      transition:
+        transform 0.2s ease,
+        border-color 0.2s ease,
+        background 0.2s ease,
+        box-shadow 0.2s ease;
     }
 
     .link:hover {
@@ -112,17 +222,6 @@
       border-color: rgba(77, 168, 255, 0.55);
       background: rgba(25, 51, 79, 0.95);
       box-shadow: 0 10px 30px rgba(0, 0, 0, 0.18);
-    }
-
-    .link.primary {
-      background: linear-gradient(135deg, #4ca8ff, #3287e8);
-      color: #06111e;
-      border-color: transparent;
-      box-shadow: 0 10px 30px rgba(50, 135, 232, 0.25);
-    }
-
-    .link.primary:hover {
-      background: linear-gradient(135deg, #61b2ff, #3c92ef);
     }
 
     .icon {
@@ -153,17 +252,9 @@
       font-size: 0.86rem;
     }
 
-    .primary .link-subtitle {
-      color: #173957;
-    }
-
     .arrow {
       font-size: 1.5rem;
       color: #8fb8df;
-    }
-
-    .primary .arrow {
-      color: #0a355c;
     }
 
     /* SECCIONES */
@@ -316,6 +407,14 @@
         font-size: 0.94rem;
       }
 
+      .document-actions {
+        grid-template-columns: 1fr;
+      }
+
+      .document-button {
+        min-height: 46px;
+      }
+
       .education {
         grid-template-columns: 1fr;
         gap: 20px;
@@ -353,7 +452,10 @@
 
         <div class="profile-info">
 
-          <h1>Juan Antonio<br>San Agustín Serrano</h1>
+          <h1>
+            Juan Antonio<br>
+            San Agustín Serrano
+          </h1>
 
           <p class="subtitle">
             ASIR · IT · Sistemas y Redes
@@ -371,23 +473,103 @@
       </header>
 
 
+      <!-- DOCUMENTOS PROFESIONALES -->
+
+      <section class="documents" aria-label="Documentos profesionales">
+
+        <!-- CV -->
+
+        <div class="document-card">
+
+          <div class="document-info">
+
+            <span class="document-icon">📄</span>
+
+            <div>
+              <span class="document-title">
+                Currículum Vitae
+              </span>
+
+              <span class="document-subtitle">
+                Formación, experiencia y competencias profesionales
+              </span>
+            </div>
+
+          </div>
+
+          <div class="document-actions">
+
+            <a
+              class="document-button view"
+              href="cv.pdf"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              👁️ Ver CV
+            </a>
+
+            <a
+              class="document-button download"
+              href="cv.pdf"
+              download="Juan-Antonio-San-Agustin-Serrano-CV.pdf"
+            >
+              ⬇️ Descargar CV
+            </a>
+
+          </div>
+
+        </div>
+
+
+        <!-- CARTA DE PRESENTACIÓN -->
+
+        <div class="document-card">
+
+          <div class="document-info">
+
+            <span class="document-icon">✉️</span>
+
+            <div>
+              <span class="document-title">
+                Carta de presentación
+              </span>
+
+              <span class="document-subtitle">
+                Presentación profesional para empresas
+              </span>
+            </div>
+
+          </div>
+
+          <div class="document-actions">
+
+            <a
+              class="document-button view"
+              href="carta-presentacion.pdf"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              👁️ Ver carta
+            </a>
+
+            <a
+              class="document-button download"
+              href="carta-presentacion.pdf"
+              download="Juan-Antonio-San-Agustin-Serrano-Carta-Presentacion.pdf"
+            >
+              ⬇️ Descargar carta
+            </a>
+
+          </div>
+
+        </div>
+
+      </section>
+
+
       <!-- CONTACTO -->
 
       <nav class="links" aria-label="Enlaces de contacto">
-
-        <a class="link primary" href="cv.pdf" target="_blank">
-
-          <span class="icon">📄</span>
-
-          <span class="link-content">
-            <span class="link-title">Currículum Vitae</span>
-            <span class="link-subtitle">Consulta mi CV en PDF</span>
-          </span>
-
-          <span class="arrow">›</span>
-
-        </a>
-
 
         <a
           class="link"
@@ -399,8 +581,15 @@
           <span class="icon">in</span>
 
           <span class="link-content">
-            <span class="link-title">LinkedIn</span>
-            <span class="link-subtitle">Conecta conmigo en LinkedIn</span>
+
+            <span class="link-title">
+              LinkedIn
+            </span>
+
+            <span class="link-subtitle">
+              Conecta conmigo en LinkedIn
+            </span>
+
           </span>
 
           <span class="arrow">›</span>
@@ -418,8 +607,15 @@
           <span class="icon">💻</span>
 
           <span class="link-content">
-            <span class="link-title">GitHub</span>
-            <span class="link-subtitle">Mis proyectos y contribuciones</span>
+
+            <span class="link-title">
+              GitHub
+            </span>
+
+            <span class="link-subtitle">
+              Mis proyectos y contribuciones
+            </span>
+
           </span>
 
           <span class="arrow">›</span>
@@ -437,8 +633,15 @@
           <span class="icon">✈️</span>
 
           <span class="link-content">
-            <span class="link-title">Telegram</span>
-            <span class="link-subtitle">Contacta conmigo por Telegram</span>
+
+            <span class="link-title">
+              Telegram
+            </span>
+
+            <span class="link-subtitle">
+              Contacta conmigo por Telegram
+            </span>
+
           </span>
 
           <span class="arrow">›</span>
@@ -454,8 +657,15 @@
           <span class="icon">✉️</span>
 
           <span class="link-content">
-            <span class="link-title">Email</span>
-            <span class="link-subtitle">Envíame un correo electrónico</span>
+
+            <span class="link-title">
+              Email
+            </span>
+
+            <span class="link-subtitle">
+              Envíame un correo electrónico
+            </span>
+
           </span>
 
           <span class="arrow">›</span>
@@ -471,8 +681,15 @@
           <span class="icon">📞</span>
 
           <span class="link-content">
-            <span class="link-title">Teléfono</span>
-            <span class="link-subtitle">Llamar directamente</span>
+
+            <span class="link-title">
+              Teléfono
+            </span>
+
+            <span class="link-subtitle">
+              Llamar directamente
+            </span>
+
           </span>
 
           <span class="arrow">›</span>
@@ -540,22 +757,30 @@
 
             <div class="education-item">
               <span class="bullet">●</span>
-              <span>Grado universitario en Filología Hispánica</span>
+              <span>
+                Grado universitario en Filología Hispánica
+              </span>
             </div>
 
             <div class="education-item">
               <span class="bullet">●</span>
-              <span>Bachillerato de Humanidades</span>
+              <span>
+                Bachillerato de Humanidades
+              </span>
             </div>
 
             <div class="education-item">
               <span class="bullet">●</span>
-              <span>Curso de Atención al Cliente</span>
+              <span>
+                Curso de Atención al Cliente
+              </span>
             </div>
 
             <div class="education-item">
               <span class="bullet">●</span>
-              <span>Curso de Venta enfocado a empresas</span>
+              <span>
+                Curso de Venta enfocado a empresas
+              </span>
             </div>
 
             <div class="education-item">
@@ -571,31 +796,54 @@
           <div class="education-column">
 
             <div class="info-item">
-              <span class="info-label">Tecnologías</span>
+
+              <span class="info-label">
+                Tecnologías
+              </span>
+
               <span class="info-value">
                 Sistemas · Redes · Linux · Docker · IT
               </span>
+
             </div>
 
+
             <div class="info-item">
-              <span class="info-label">Competencias</span>
+
+              <span class="info-label">
+                Competencias
+              </span>
+
               <span class="info-value">
                 Comunicación · Atención al cliente · Trabajo en equipo
               </span>
+
             </div>
 
+
             <div class="info-item">
-              <span class="info-label">Idiomas</span>
+
+              <span class="info-label">
+                Idiomas
+              </span>
+
               <span class="info-value">
                 Español · Inglés B2
               </span>
+
             </div>
 
+
             <div class="info-item">
-              <span class="info-label">Ubicación</span>
+
+              <span class="info-label">
+                Ubicación
+              </span>
+
               <span class="info-value">
                 Córdoba, España
               </span>
+
             </div>
 
           </div>
