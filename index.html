@@ -45,6 +45,7 @@
 
     html {
       scroll-behavior: smooth;
+      overflow-x: hidden;
     }
 
     body {
@@ -73,11 +74,17 @@
 
       min-height: 100vh;
       line-height: 1.6;
+
+      overflow-x: hidden;
     }
 
     a {
       color: inherit;
       text-decoration: none;
+    }
+
+    img {
+      max-width: 100%;
     }
 
     .container {
@@ -189,6 +196,87 @@
     }
 
     /* =========================
+       QUICK ACTIONS
+    ========================= */
+
+    .quick-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+
+      margin-top: 20px;
+    }
+
+    .quick-action {
+      display: inline-flex;
+
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+
+      min-height: 44px;
+
+      padding: 10px 17px;
+
+      border-radius: 12px;
+
+      border: 1px solid rgba(0, 174, 255, 0.25);
+
+      background:
+        rgba(0, 153, 255, 0.10);
+
+      color: #dff5ff;
+
+      font-size: 0.9rem;
+      font-weight: 600;
+
+      transition:
+        transform 0.2s ease,
+        background 0.2s ease,
+        border-color 0.2s ease;
+    }
+
+    .quick-action:hover {
+      transform: translateY(-2px);
+
+      background:
+        rgba(0, 153, 255, 0.20);
+
+      border-color:
+        rgba(0, 174, 255, 0.45);
+    }
+
+    .quick-action.primary {
+      background:
+        linear-gradient(
+          135deg,
+          rgba(0, 174, 255, 0.24),
+          rgba(0, 102, 255, 0.20)
+        );
+
+      border-color:
+        rgba(0, 174, 255, 0.42);
+    }
+
+    .quick-action.contact {
+      background:
+        rgba(34, 197, 94, 0.08);
+
+      border-color:
+        rgba(34, 197, 94, 0.22);
+
+      color: #c9fbd5;
+    }
+
+    .quick-action.contact:hover {
+      background:
+        rgba(34, 197, 94, 0.15);
+
+      border-color:
+        rgba(34, 197, 94, 0.38);
+    }
+
+    /* =========================
        NAVIGATION
     ========================= */
 
@@ -204,6 +292,12 @@
     }
 
     .nav-inner a {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+
+      min-height: 42px;
+
       padding: 9px 16px;
 
       border-radius: 999px;
@@ -234,6 +328,7 @@
 
     section {
       margin: 35px 0;
+      scroll-margin-top: 20px;
     }
 
     .section-title {
@@ -299,6 +394,8 @@
 
       align-items: center;
       justify-content: center;
+
+      min-height: 44px;
 
       padding: 10px 16px;
 
@@ -519,6 +616,8 @@
 
       gap: 12px;
 
+      min-height: 58px;
+
       padding: 16px;
 
       border-radius: 15px;
@@ -572,40 +671,143 @@
 
     @media (max-width: 700px) {
 
+      .container {
+        width: min(100% - 28px, 1100px);
+      }
+
       header {
-        padding-top: 30px;
+        padding-top: 22px;
+        padding-bottom: 25px;
       }
 
       .hero {
         grid-template-columns: 1fr;
 
+        gap: 22px;
+
         text-align: center;
 
-        padding: 28px 22px;
+        padding: 26px 18px;
+
+        border-radius: 22px;
       }
 
       .profile-image {
+        width: 145px;
+        height: 145px;
+
         margin: 0 auto;
       }
 
       .hero h1 {
-        font-size: 2rem;
+        font-size: clamp(1.85rem, 8vw, 2.25rem);
+
+        overflow-wrap: anywhere;
       }
 
       .hero-subtitle {
-        font-size: 1rem;
+        font-size: 0.98rem;
+
+        line-height: 1.45;
+      }
+
+      .hero-location {
+        font-size: 0.9rem;
       }
 
       .availability {
+        display: flex;
+
+        width: 100%;
+
         justify-content: center;
+
         text-align: center;
+
         line-height: 1.4;
+
         border-radius: 16px;
+
+        padding: 10px 12px;
+      }
+
+      /* =========================
+         QUICK ACTIONS MOBILE
+      ========================= */
+
+      .quick-actions {
+        display: grid;
+
+        grid-template-columns: 1fr;
+
+        gap: 9px;
+
+        margin-top: 16px;
+      }
+
+      .quick-action {
+        width: 100%;
+
+        min-height: 48px;
+
+        padding: 11px 15px;
+      }
+
+      /* =========================
+         NAV MOBILE
+      ========================= */
+
+      nav {
+        margin: 15px 0 5px;
+      }
+
+      .nav-inner {
+        justify-content: center;
+
+        align-items: center;
+
+        flex-wrap: wrap;
+
+        gap: 7px;
+      }
+
+      .nav-inner a {
+        min-height: 42px;
+
+        padding: 8px 11px;
+
+        font-size: 0.84rem;
+
+        white-space: nowrap;
+      }
+
+      /* =========================
+         SECTIONS MOBILE
+      ========================= */
+
+      section {
+        margin: 30px 0;
+
+        scroll-margin-top: 15px;
+      }
+
+      .section-title {
+        font-size: 1.4rem;
       }
 
       .card {
-        padding: 22px;
+        padding: 20px;
+
+        border-radius: 18px;
       }
+
+      .card p {
+        font-size: 0.94rem;
+      }
+
+      /* =========================
+         DOCUMENTS MOBILE
+      ========================= */
 
       .document-grid,
       .project-grid,
@@ -613,27 +815,97 @@
         grid-template-columns: 1fr;
       }
 
-      /* Menú móvil adaptado a varias filas */
-
-      .nav-inner {
-        justify-content: center;
-        align-items: center;
-
-        flex-wrap: wrap;
-
-        overflow: visible;
-
-        gap: 8px;
-
-        padding-bottom: 0;
+      .document-card,
+      .project-card {
+        padding: 21px;
       }
 
-      .nav-inner a {
-        flex-shrink: 1;
+      .document-actions {
+        display: grid;
 
-        padding: 8px 12px;
+        grid-template-columns: 1fr;
+
+        gap: 8px;
+      }
+
+      .document-actions .button {
+        width: 100%;
+      }
+
+      /* =========================
+         FORMATION MOBILE
+      ========================= */
+
+      .timeline {
+        gap: 12px;
+      }
+
+      .timeline-item {
+        padding: 18px;
+
+        border-left-width: 3px;
+      }
+
+      .timeline-item h3 {
+        font-size: 1rem;
+
+        line-height: 1.4;
+      }
+
+      .timeline-item p {
+        font-size: 0.9rem;
+      }
+
+      /* =========================
+         PROJECTS MOBILE
+      ========================= */
+
+      .project-card h3 {
+        font-size: 1.05rem;
+      }
+
+      .project-card p {
+        font-size: 0.91rem;
+      }
+
+      .tag {
+        font-size: 0.76rem;
+
+        padding: 5px 9px;
+      }
+
+      /* =========================
+         INTERESTS MOBILE
+      ========================= */
+
+      .interest-grid {
+        gap: 8px;
+      }
+
+      .interest {
+        padding: 9px 12px;
 
         font-size: 0.88rem;
+      }
+
+      /* =========================
+         CONTACT MOBILE
+      ========================= */
+
+      .contact-link {
+        min-height: 58px;
+
+        padding: 15px;
+      }
+
+      /* =========================
+         FOOTER MOBILE
+      ========================= */
+
+      footer {
+        padding: 40px 0 28px;
+
+        font-size: 0.8rem;
       }
     }
   </style>
@@ -673,9 +945,42 @@
 
           <div class="availability">
             <span class="availability-dot"></span>
+
             <span>
               Disponible para nuevas oportunidades · Prácticas · Soporte técnico · Sistemas · Redes · Puestos junior
             </span>
+          </div>
+
+          <!-- =========================
+               ACCIONES PRINCIPALES
+          ========================= -->
+
+          <div class="quick-actions">
+
+            <a
+              href="cv-juan-antonio-san-agustin-serrano.pdf"
+              target="_blank"
+              rel="noopener"
+              class="quick-action primary"
+            >
+              📄 Ver CV
+            </a>
+
+            <a
+              href="juan-antonio-san-agustin-serrano.vcf"
+              download="Juan-Antonio-San-Agustin-Serrano.vcf"
+              class="quick-action"
+            >
+              📇 Guardar contacto
+            </a>
+
+            <a
+              href="#contacto"
+              class="quick-action contact"
+            >
+              ✉️ Contactar
+            </a>
+
           </div>
 
         </div>
