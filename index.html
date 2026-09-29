@@ -569,18 +569,26 @@
         grid-template-columns: 1fr;
       }
 
+      /* Menú móvil adaptado a varias filas */
       .nav-inner {
-        justify-content: flex-start;
+        justify-content: center;
+        align-items: center;
 
-        overflow-x: auto;
+        flex-wrap: wrap;
 
-        flex-wrap: nowrap;
+        overflow: visible;
 
-        padding-bottom: 5px;
+        gap: 8px;
+
+        padding-bottom: 0;
       }
 
       .nav-inner a {
-        flex-shrink: 0;
+        flex-shrink: 1;
+
+        padding: 8px 12px;
+
+        font-size: 0.88rem;
       }
     }
   </style>
@@ -935,7 +943,6 @@
 
       <div class="document-grid">
 
-
         <!-- CV -->
 
         <div class="document-card">
@@ -1032,7 +1039,10 @@
         Guardar contacto
       </h2>
 
-      <div class="card" style="text-align: center;">
+      <div
+        class="card"
+        style="text-align: center;"
+      >
 
         <p>
           Guarda mis datos de contacto directamente en tu agenda.
