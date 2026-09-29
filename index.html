@@ -3,7 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" sizes="512x512" href="favicon.png">
+    <link rel="icon" href="favicon.ico">
+
     <meta name="description" content="Juan Antonio San Agustín Serrano - Administración de Sistemas Informáticos en Red">
+    <meta name="author" content="Juan Antonio San Agustín Serrano">
+
     <title>Juan Antonio San Agustín Serrano</title>
 
     <style>
@@ -39,7 +46,9 @@
             margin: 0 auto;
         }
 
-        /* HEADER */
+        /* =========================
+           HEADER
+        ========================= */
 
         header {
             padding: 70px 0 40px;
@@ -113,7 +122,9 @@
             background: #1d4ed8;
         }
 
-        /* NAVIGATION */
+        /* =========================
+           NAVIGATION
+        ========================= */
 
         nav {
             position: sticky;
@@ -146,7 +157,9 @@
             background: rgba(51, 65, 85, 0.7);
         }
 
-        /* SECTIONS */
+        /* =========================
+           SECTIONS
+        ========================= */
 
         section {
             margin-bottom: 55px;
@@ -180,7 +193,9 @@
             margin-bottom: 18px;
         }
 
-        /* DOCUMENTS */
+        /* =========================
+           DOCUMENTS
+        ========================= */
 
         .documents-grid {
             display: grid;
@@ -233,7 +248,9 @@
             background: #334155;
         }
 
-        /* FORMATION */
+        /* =========================
+           FORMATION
+        ========================= */
 
         .timeline {
             position: relative;
@@ -263,7 +280,9 @@
             color: #94a3b8;
         }
 
-        /* PROJECTS */
+        /* =========================
+           PROJECTS
+        ========================= */
 
         .projects-grid {
             display: grid;
@@ -303,7 +322,9 @@
             border: 1px solid rgba(148, 163, 184, 0.12);
         }
 
-        /* INTERESTS */
+        /* =========================
+           INTERESTS
+        ========================= */
 
         .tags {
             display: flex;
@@ -319,7 +340,9 @@
             color: #bfdbfe;
         }
 
-        /* CONTACT */
+        /* =========================
+           CONTACT
+        ========================= */
 
         .contact-grid {
             display: grid;
@@ -367,7 +390,9 @@
             text-overflow: ellipsis;
         }
 
-        /* FOOTER */
+        /* =========================
+           FOOTER
+        ========================= */
 
         footer {
             text-align: center;
@@ -376,7 +401,9 @@
             font-size: 0.9rem;
         }
 
-        /* RESPONSIVE */
+        /* =========================
+           RESPONSIVE
+        ========================= */
 
         @media (max-width: 650px) {
             header {
@@ -403,7 +430,10 @@
 
     <div class="container">
 
-        <!-- HERO -->
+        <!-- =========================
+             HERO
+        ========================= -->
+
         <header>
             <div class="hero">
 
@@ -420,6 +450,7 @@
                 </p>
 
                 <div class="hero-buttons">
+
                     <a href="#documentos" class="btn btn-primary">
                         Ver documentación
                     </a>
@@ -427,26 +458,35 @@
                     <a href="#contacto" class="btn">
                         Contactar
                     </a>
+
                 </div>
 
             </div>
         </header>
 
 
-        <!-- NAV -->
+        <!-- =========================
+             NAVIGATION
+        ========================= -->
+
         <nav>
             <div class="nav-inner">
+
                 <a href="#sobre-mi">Sobre mí</a>
                 <a href="#documentos">Documentación</a>
                 <a href="#formacion">Formación</a>
                 <a href="#proyectos">Proyectos</a>
                 <a href="#intereses">Intereses</a>
                 <a href="#contacto">Contacto</a>
+
             </div>
         </nav>
 
 
-        <!-- SOBRE MÍ -->
+        <!-- =========================
+             SOBRE MÍ
+        ========================= -->
+
         <section id="sobre-mi">
 
             <div class="section-card">
@@ -489,7 +529,10 @@
         </section>
 
 
-        <!-- DOCUMENTOS -->
+        <!-- =========================
+             DOCUMENTACIÓN
+        ========================= -->
+
         <section id="documentos">
 
             <div class="section-card">
@@ -501,6 +544,7 @@
                 <div class="documents-grid">
 
                     <!-- CV -->
+
                     <div class="document-card">
 
                         <div class="document-icon">📄</div>
@@ -534,7 +578,8 @@
                     </div>
 
 
-                    <!-- CARTA -->
+                    <!-- CARTA DE PRESENTACIÓN -->
+
                     <div class="document-card">
 
                         <div class="document-icon">✉️</div>
@@ -574,7 +619,10 @@
         </section>
 
 
-        <!-- FORMACIÓN -->
+        <!-- =========================
+             FORMACIÓN
+        ========================= -->
+
         <section id="formacion">
 
             <div class="section-card">
@@ -586,52 +634,89 @@
                 <div class="timeline">
 
                     <div class="timeline-item">
-                        <div class="meta">En curso</div>
+
+                        <div class="meta">
+                            En curso
+                        </div>
+
                         <h3>
                             Grado Superior en Administración de Sistemas Informáticos en Red
                             (ASIR)
                         </h3>
+
                         <p>
                             C.D.P. Ramón y Cajal · Córdoba
                         </p>
+
                     </div>
 
+
                     <div class="timeline-item">
-                        <div class="meta">Formación universitaria</div>
+
+                        <div class="meta">
+                            Formación universitaria
+                        </div>
+
                         <h3>
                             Grado universitario en Filología Hispánica
                         </h3>
+
                     </div>
 
+
                     <div class="timeline-item">
-                        <div class="meta">140 horas</div>
+
+                        <div class="meta">
+                            140 horas
+                        </div>
+
                         <h3>
                             Curso de Instalador de Sistemas Fotovoltaicos
                         </h3>
+
                         <p>
                             Proyecto Futuro Solar · UGT · Financiado por IMDEEC
                         </p>
+
                     </div>
 
+
                     <div class="timeline-item">
-                        <div class="meta">Bachillerato</div>
+
+                        <div class="meta">
+                            Bachillerato
+                        </div>
+
                         <h3>
                             Bachillerato de Humanidades
                         </h3>
+
                     </div>
 
+
                     <div class="timeline-item">
-                        <div class="meta">Formación complementaria</div>
+
+                        <div class="meta">
+                            Formación complementaria
+                        </div>
+
                         <h3>
                             Curso de Atención al Cliente
                         </h3>
+
                     </div>
 
+
                     <div class="timeline-item">
-                        <div class="meta">Formación complementaria</div>
+
+                        <div class="meta">
+                            Formación complementaria
+                        </div>
+
                         <h3>
                             Curso de Venta enfocado a empresas
                         </h3>
+
                     </div>
 
                 </div>
@@ -641,7 +726,10 @@
         </section>
 
 
-        <!-- PROYECTOS -->
+        <!-- =========================
+             PROYECTOS
+        ========================= -->
+
         <section id="proyectos">
 
             <div class="section-card">
@@ -664,6 +752,7 @@
                         </p>
 
                         <ul class="project-list">
+
                             <li>Ubuntu Server</li>
                             <li>VirtualBox</li>
                             <li>Máquinas virtuales</li>
@@ -674,6 +763,7 @@
                             <li>Apache</li>
                             <li>systemctl</li>
                             <li>Documentación</li>
+
                         </ul>
 
                     </div>
@@ -685,7 +775,10 @@
         </section>
 
 
-        <!-- INTERESES -->
+        <!-- =========================
+             ÁREAS DE INTERÉS
+        ========================= -->
+
         <section id="intereses">
 
             <div class="section-card">
@@ -710,7 +803,10 @@
         </section>
 
 
-        <!-- CONTACTO -->
+        <!-- =========================
+             CONTACTO
+        ========================= -->
+
         <section id="contacto">
 
             <div class="section-card">
@@ -722,6 +818,7 @@
                 <div class="contact-grid">
 
                     <!-- LINKEDIN -->
+
                     <a
                         href="https://www.linkedin.com/in/juanantoniosanagustinserrano/"
                         target="_blank"
@@ -738,14 +835,20 @@
                         </svg>
 
                         <div class="contact-text">
+
                             <strong>LinkedIn</strong>
-                            <span>Perfil profesional</span>
+
+                            <span>
+                                Perfil profesional
+                            </span>
+
                         </div>
 
                     </a>
 
 
                     <!-- GITHUB -->
+
                     <a
                         href="https://github.com/xWan-Dev"
                         target="_blank"
@@ -762,14 +865,20 @@
                         </svg>
 
                         <div class="contact-text">
+
                             <strong>GitHub</strong>
-                            <span>xWan-Dev</span>
+
+                            <span>
+                                xWan-Dev
+                            </span>
+
                         </div>
 
                     </a>
 
 
                     <!-- TELEGRAM -->
+
                     <a
                         href="https://t.me/xwandev"
                         target="_blank"
@@ -786,14 +895,20 @@
                         </svg>
 
                         <div class="contact-text">
+
                             <strong>Telegram</strong>
-                            <span>@xwandev</span>
+
+                            <span>
+                                @xwandev
+                            </span>
+
                         </div>
 
                     </a>
 
 
                     <!-- EMAIL -->
+
                     <a
                         href="mailto:juanantoniosanprofesional@gmail.com"
                         class="contact-link"
@@ -811,14 +926,20 @@
                         </svg>
 
                         <div class="contact-text">
+
                             <strong>Email</strong>
-                            <span>juanantoniosanprofesional@gmail.com</span>
+
+                            <span>
+                                juanantoniosanprofesional@gmail.com
+                            </span>
+
                         </div>
 
                     </a>
 
 
-                    <!-- PHONE -->
+                    <!-- TELÉFONO -->
+
                     <a
                         href="tel:+34655182256"
                         class="contact-link"
@@ -835,8 +956,13 @@
                         </svg>
 
                         <div class="contact-text">
+
                             <strong>Teléfono</strong>
-                            <span>+34 655 182 256</span>
+
+                            <span>
+                                +34 655 182 256
+                            </span>
+
                         </div>
 
                     </a>
@@ -848,7 +974,10 @@
         </section>
 
 
-        <!-- FOOTER -->
+        <!-- =========================
+             FOOTER
+        ========================= -->
+
         <footer>
             © 2026 Juan Antonio San Agustín Serrano · Córdoba, España
         </footer>
