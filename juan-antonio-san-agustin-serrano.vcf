@@ -1,0 +1,14 @@
+BEGIN:VCARD
+VERSION:3.0
+N:San Agustín Serrano;Juan Antonio;;;
+FN:Juan Antonio San Agustín Serrano
+ORG:Administración de Sistemas Informáticos en Red (ASIR)
+TITLE:Estudiante ASIR · Sistemas · Redes · Linux
+TEL;TYPE=CELL:+34655182256
+EMAIL;TYPE=INTERNET:juanantoniosanprofesional@gmail.com
+ADR;TYPE=HOME:;;Córdoba;;;España
+URL:https://xwan-dev.github.io
+URL;TYPE=LinkedIn:https://www.linkedin.com/in/juanantoniosanagustinserrano/
+URL;TYPE=GitHub:https://github.com/xWan-Dev
+URL;TYPE=Telegram:https://t.me/xwandev
+END:VCARD
